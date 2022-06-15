@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meusite/src/components/nav_bar.dart';
+import 'package:meusite/src/components/skill_component.dart';
 import 'package:meusite/src/widgets/buttom_nav_bar_widget.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
@@ -16,8 +17,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
-
-    print('buld');
 
     return Scaffold(
         appBar: NavBar(
@@ -54,42 +53,74 @@ class _HomePageState extends State<HomePage> {
                 height: screenSize.height * 0.3,
                 width: screenSize.width,
                 color: Colors.green.shade400,
+                child: Column(
+                  children: [
+                    const Text('Skills',
+                        style: TextStyle(
+                          fontSize: 60,
+                          fontFamily: 'Anonymice',
+                          color: Colors.white,
+                        )),
+                    SizedBox(
+                      height: screenSize.height * 0.05,
+                    ),
+                    Flex(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      direction: Axis.horizontal,
+                      children: const [
+                        SkillComponent(skillValue: 0.6, skillName: 'Dart'),
+                        SkillComponent(skillValue: 0.5, skillName: 'Flutter'),
+                        SkillComponent(skillValue: 0.2, skillName: 'Query'),
+                        SkillComponent(skillValue: 0.9, skillName: 'Dedicação'),
+                      ],
+                    )
+                  ],
+                ),
               ),
               Container(
                 width: screenSize.width,
                 height: (screenSize.height * 0.7) - 70,
-                padding: const EdgeInsets.only(left: 100, top: 50),
-                child: Row(
+                padding: const EdgeInsets.only(left: 100, top: 30),
+                child: Flex(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  direction: Axis.horizontal,
                   children: [
-                    AnimatedTextKit(
-                        isRepeatingAnimation: false,
-                        animatedTexts: [
-                          TypewriterAnimatedText(
-                              'Class Eu{\n   Celso Júnior;\n   25 anos;\n   Cristão;\n   Programador;\n   Amante da tecnologia;\n}',
-                              speed: const Duration(milliseconds: 100),
-                              textStyle: const TextStyle(
-                                fontSize: 60,
-                                fontFamily: 'Anonymice',
-                                color: Colors.black,
-                              )),
-                        ]),
-                    const Spacer(),
-                    Stack(children: [
-                      Image.asset(
-                        'assets/images/eu_verde.png',
-                        scale: imgScale,
-                      ),
-                      Image.asset(
-                        'assets/images/eu.png',
-                      ),
-                    ]),
-                    SizedBox(
-                      width: screenSize.width * 0.1,
+                    Flexible(
+                      flex: 5,
+                      child: AnimatedTextKit(
+                          isRepeatingAnimation: false,
+                          animatedTexts: [
+                            TypewriterAnimatedText(
+                                'Class Eu{\n   Celso Júnior;\n   25 anos;\n   Cristão;\n   Programador;\n   Amante da tecnologia;\n}',
+                                speed: const Duration(milliseconds: 100),
+                                textStyle: const TextStyle(
+                                  fontSize: 60,
+                                  fontFamily: 'Anonymice',
+                                  color: Colors.black,
+                                )),
+                          ]),
+                    ),
+                    const Spacer(
+                      flex: 1,
+                    ),
+                    Flexible(
+                      flex: 2,
+                      child: Stack(children: [
+                        Image.asset(
+                          'assets/images/eu_verde.png',
+                          scale: imgScale,
+                        ),
+                        Image.asset(
+                          'assets/images/eu.png',
+                        ),
+                      ]),
+                    ),
+                    const Spacer(
+                      flex: 1,
                     )
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ));

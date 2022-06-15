@@ -30,7 +30,7 @@ class _AboutPageState extends State<AboutPage> {
               Navigator.pushNamed(context, '/about');
             }),
         ButtonNavBarWidget(
-            text: "HOME",
+            text: "PROJECTS",
             onPressed: () {
               Navigator.pushNamed(context, '/');
             }),
