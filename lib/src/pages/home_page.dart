@@ -18,111 +18,88 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
 
-    return Scaffold(
-        appBar: NavBar(
-          preferredSize: Size(screenSize.width, 70),
-          menuItens: [
-            ButtonNavBarWidget(
-                text: "HOME",
-                isCurrentPage: true,
-                onPressed: () {
-                  Navigator.pushNamed(context, '/');
-                }),
-            ButtonNavBarWidget(
-                text: "ABOUT",
-                onPressed: () {
-                  Navigator.pushNamed(context, '/about');
-                }),
-            ButtonNavBarWidget(
-                text: "PROJECTS",
-                onPressed: () {
-                  Navigator.pushNamed(context, '/');
-                }),
-          ],
-          color: Colors.white,
-        ),
-        body: Container(
-          color: Colors.white,
-          width: screenSize.width,
-          height: screenSize.height - 70,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            verticalDirection: VerticalDirection.up,
-            children: [
-              Container(
-                height: screenSize.height * 0.3,
-                width: screenSize.width,
-                color: Colors.green.shade400,
-                child: Column(
-                  children: [
-                    const Text('Skills',
-                        style: TextStyle(
-                          fontSize: 60,
-                          fontFamily: 'Anonymice',
-                          color: Colors.white,
-                        )),
-                    SizedBox(
-                      height: screenSize.height * 0.05,
-                    ),
-                    Flex(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      direction: Axis.horizontal,
-                      children: const [
-                        SkillComponent(skillValue: 0.6, skillName: 'Dart'),
-                        SkillComponent(skillValue: 0.5, skillName: 'Flutter'),
-                        SkillComponent(skillValue: 0.2, skillName: 'Query'),
-                        SkillComponent(skillValue: 0.9, skillName: 'Dedicação'),
-                      ],
-                    )
-                  ],
+    return Container(
+      color: Colors.white,
+      width: screenSize.width,
+      height: screenSize.height - 70,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        verticalDirection: VerticalDirection.up,
+        children: [
+          Container(
+            height: screenSize.height * 0.3,
+            width: screenSize.width,
+            color: Colors.green.shade400,
+            child: Column(
+              children: [
+                const Text('Skills',
+                    style: TextStyle(
+                      fontSize: 60,
+                      fontFamily: 'Anonymice',
+                      color: Colors.white,
+                    )),
+                SizedBox(
+                  height: screenSize.height * 0.05,
                 ),
-              ),
-              Container(
-                width: screenSize.width,
-                height: (screenSize.height * 0.7) - 70,
-                padding: const EdgeInsets.only(left: 100, top: 30),
-                child: Flex(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                Flex(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   direction: Axis.horizontal,
-                  children: [
-                    Flexible(
-                      flex: 5,
-                      child: AnimatedTextKit(
-                          isRepeatingAnimation: false,
-                          animatedTexts: [
-                            TypewriterAnimatedText(
-                                'Class Eu{\n   Celso Júnior;\n   25 anos;\n   Cristão;\n   Programador;\n   Amante da tecnologia;\n}',
-                                speed: const Duration(milliseconds: 100),
-                                textStyle: const TextStyle(
-                                  fontSize: 60,
-                                  fontFamily: 'Anonymice',
-                                  color: Colors.black,
-                                )),
-                          ]),
-                    ),
-                    const Spacer(
-                      flex: 1,
-                    ),
-                    Flexible(
-                      flex: 2,
-                      child: Stack(children: [
-                        Image.asset(
-                          'assets/images/eu_verde.png',
-                          scale: imgScale,
-                        ),
-                        Image.asset(
-                          'assets/images/eu.png',
-                        ),
-                      ]),
-                    ),
-                    const Spacer(
-                      flex: 1,
-                    )
+                  children: const [
+                    SkillComponent(skillValue: 0.6, skillName: 'Dart'),
+                    SkillComponent(skillValue: 0.5, skillName: 'Flutter'),
+                    SkillComponent(skillValue: 0.2, skillName: 'Query'),
+                    SkillComponent(skillValue: 0.9, skillName: 'Dedicação'),
                   ],
-                ),
-              ),
-            ],
+                )
+              ],
+            ),
           ),
-        ));
+          Container(
+            width: screenSize.width,
+            height: (screenSize.height * 0.7) - 70,
+            padding: const EdgeInsets.only(left: 100, top: 30),
+            child: Flex(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              direction: Axis.horizontal,
+              children: [
+                Flexible(
+                  flex: 5,
+                  child: AnimatedTextKit(
+                      isRepeatingAnimation: false,
+                      animatedTexts: [
+                        TypewriterAnimatedText(
+                            'Class Eu{\n   Celso Júnior;\n   25 anos;\n   Cristão;\n   Programador;\n   Amante da tecnologia;\n}',
+                            speed: const Duration(milliseconds: 100),
+                            textStyle: const TextStyle(
+                              fontSize: 60,
+                              fontFamily: 'Anonymice',
+                              color: Colors.black,
+                            )),
+                      ]),
+                ),
+                const Spacer(
+                  flex: 1,
+                ),
+                Flexible(
+                  flex: 2,
+                  child: Stack(children: [
+                    Image.asset(
+                      'assets/images/eu_verde.png',
+                      scale: imgScale,
+                    ),
+                    Image.asset(
+                      'assets/images/eu.png',
+                    ),
+                  ]),
+                ),
+                const Spacer(
+                  flex: 1,
+                )
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'src/my_site.dart';
+import 'src/widgets/my_site_widget.dart';
 
 void main() {
-  runApp(const MySite());
+  runApp(const MySiteWidget());
 }
