@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
         verticalDirection: VerticalDirection.up,
         children: [
           Container(
-            height: screenSize.height * 0.3,
+            height: screenSize.height * 0.3-70,
             width: screenSize.width,
             color: Colors.green.shade400,
             child: Column(
@@ -57,41 +57,35 @@ class _HomePageState extends State<HomePage> {
           Container(
             width: screenSize.width,
             height: (screenSize.height * 0.7) - 70,
-            padding: const EdgeInsets.only(left: 100, top: 30),
-            child: Flex(
+            padding: const EdgeInsets.only(left: 50),
+            child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
-              direction: Axis.horizontal,
+              
               children: [
-                Flexible(
-                  flex: 5,
-                  child: AnimatedTextKit(
-                      isRepeatingAnimation: false,
-                      animatedTexts: [
-                        TypewriterAnimatedText(
-                            'Class Eu{\n   Celso Júnior;\n   25 anos;\n   Cristão;\n   Programador;\n   Amante da tecnologia;\n}',
-                            speed: const Duration(milliseconds: 100),
-                            textStyle: const TextStyle(
-                              fontSize: 60,
-                              fontFamily: 'Anonymice',
-                              color: Colors.black,
-                            )),
-                      ]),
-                ),
+                AnimatedTextKit(
+                    isRepeatingAnimation: false,
+                    animatedTexts: [
+                      TypewriterAnimatedText(
+                          'Class Eu{\n   Celso Júnior;\n   25 anos;\n   Cristão;\n   Programador;\n   Amante da tecnologia;\n}',
+                          speed: const Duration(milliseconds: 100),
+                          textStyle: const TextStyle(
+                            fontSize: 60,
+                            fontFamily: 'Anonymice',
+                            color: Colors.black,
+                          )),
+                    ]),
                 const Spacer(
                   flex: 1,
                 ),
-                Flexible(
-                  flex: 2,
-                  child: Stack(children: [
-                    Image.asset(
-                      'assets/images/eu_verde.png',
-                      scale: imgScale,
-                    ),
-                    Image.asset(
-                      'assets/images/eu.png',
-                    ),
-                  ]),
-                ),
+                /*Stack(children: [
+                  Image.asset(
+                    'assets/images/eu_verde.png',
+                    scale: imgScale,
+                  ),
+                  Image.asset(
+                    'assets/images/eu.png',
+                  ),
+                ]),*/
                 const Spacer(
                   flex: 1,
                 )
