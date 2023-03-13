@@ -8,5 +8,9 @@ class HttpClientDioServiceImp implements HttpClientService{
     var response = await dio.get(url);
     return response;
   }
+  
 
-}
+  @override
+  Future post({required String url}) async {
+    var response = await dio.post(url);
+  }}
