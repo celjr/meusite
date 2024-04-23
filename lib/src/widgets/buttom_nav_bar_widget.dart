@@ -26,19 +26,33 @@ class _ButtonNavBarStateWidget extends State<ButtonNavBarWidget> {
         setState(() => value ? _isHovering = true : _isHovering = false);
       },
       onTap: widget.onPressed,
-      child: Text(
-        widget.text,
-        style: TextStyle(
-            color: widget.isCurrentPage
-                ? Colors.green.shade400
-                : _isHovering
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            widget.text,
+            style: TextStyle(
+                color: widget.isCurrentPage
                     ? Colors.green.shade400
-                    : Colors.black,
-            fontSize: widget.isCurrentPage
-                ? 20
-                : _isHovering
+                    : _isHovering
+                        ? Colors.green.shade400
+                        : Colors.black,
+                fontSize: widget.isCurrentPage
                     ? 20
-                    : 15),
+                    : _isHovering
+                        ? 20
+                        : 15),
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          AnimatedContainer(
+            duration: const Duration(milliseconds: 200),
+            color:Colors.green.shade400 ,
+            height: 8,
+            width: _isHovering ? 80 : 0,
+          )
+        ],
       ),
     );
   }

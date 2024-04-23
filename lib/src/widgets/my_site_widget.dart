@@ -6,6 +6,7 @@ import 'package:meusite/src/feature/domain/repositories/projects_repository.dart
 import 'package:meusite/src/feature/domain/usecases/get_all_projects/get_all_projects_usecase.dart';
 import 'package:meusite/src/feature/domain/usecases/get_all_projects/get_all_projects_usecase_imp.dart';
 import 'package:meusite/src/pages/controller_pages.dart';
+import 'package:meusite/src/pages/home_page.dart';
 import 'package:meusite/src/services/http_client_service/http_client_service.dart';
 import 'package:provider/provider.dart';
 
@@ -28,7 +29,7 @@ class MySiteWidget extends StatelessWidget {
         title: "Meu Site",
         initialRoute: '/',
         routes: {
-          '/':(context) => const ControllerPages(),
+          '/':(context) => const HomePage(),
         },
       ),
     );

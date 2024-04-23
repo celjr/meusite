@@ -1,7 +1,6 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:meusite/src/pages/about_page.dart';
-import 'package:meusite/src/pages/home_page.dart';
+import 'package:meusite/src/pages/home_page1.dart';
 import 'package:meusite/src/pages/projects_page.dart';
 
 
@@ -16,7 +15,7 @@ class ControllerPages extends StatefulWidget {
 }
 
 class _ControllerPagesState extends State<ControllerPages> {
-  final List<Widget> pages = const [HomePage(),AboutPage(),ProjectsPage()];
+  final List<Widget> pages = const [HomePage1(),AboutPage(),ProjectsPage()];
   final PageController pageController =  PageController();
   late ValueNotifier currentPage = ValueNotifier(0);
 

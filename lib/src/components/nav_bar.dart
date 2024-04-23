@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
 
+
+enum AlignType{
+ center,
+ right, 
+}
 class NavBar extends StatefulWidget implements PreferredSizeWidget {
   @override
   final Size preferredSize;
   final List<Widget> menuItens;
   final Color? color;
+  final AlignType alignType;
   const NavBar(
       {Key? key,
       required this.preferredSize,
       required this.menuItens,
+      this.alignType = AlignType.center,
       this.color = Colors.white})
       : super(key: key);
 
@@ -40,7 +47,10 @@ class _NavBarState extends State<NavBar> {
         ),
       ]),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: switch(widget.alignType)  {
+          AlignType.center =>MainAxisAlignment.spaceEvenly,
+           AlignType.right =>MainAxisAlignment.end,
+        },
         children: widget.menuItens,
       ),
     );
